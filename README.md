@@ -16,16 +16,15 @@ for information on the Petr4 artifact.
    instructions](https://opam.ocaml.org/doc/Install.html). Make sure `opam
    --version` reports version 2 or later.
 
-1. Install external dependencies:
+1. (on Linux) Install external dependencies:
    ```
    sudo apt-get install m4 libgmp-dev
    ```
 
-### Installing from OPAM
-1. Install petr4 from the opam repository. This will take a while the first time
-   because it installs OPAM dependencies.
+1. (on MacOS) Install external dependencies:
    ```
-   opam install petr4
+   brew install m4
+   brew install gmp
    ```
 
 ### Installing from source
@@ -35,18 +34,22 @@ Alternatively, follow theses steps:
     ```
     ocamlc -v
     ```
-    If the version is less than 4.09.1, upgrade:
+    If the version is less than 4.14.0, upgrade:
     ```
-    opam switch 4.09.1
+    opam switch create <name> ocaml-base-compiler.4.14.0
     ```
 
 1. Install [p4pp](https://github.com/cornell-netlab/p4pp) from source.
+   ```
+   opam pin add p4pp https://github.com/cornell-netlab/p4pp.git
+   ```
+
 1. Install Coq and Bignum.
    ```
    opam install coq
    opam install bignum
    ```
-   If this doesn't work, install the dependencies manually.
+   If this doesn't work, install the dependencies manually. This step shouldn't be needed.
    ```
    opam install ANSITerminal alcotest bignum cstruct-sexp pp ppx_deriving ppx_deriving_yojson yojson js_of_ocaml js_of_ocaml-lwt js_of_ocaml-ppx
    ```
@@ -55,7 +58,7 @@ Alternatively, follow theses steps:
    ```
    opam repo add coq-released https://coq.inria.fr/opam/released
    opam pin add coq-vst-zlist https://github.com/PrincetonUniversity/VST.git
-   make deps
+   opam install . --deps-only
    ```
 
 1. Use dune to build and install petr4.
