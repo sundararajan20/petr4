@@ -72,6 +72,18 @@ Alternatively, follow theses steps:
    make test
    ```
 
+1. [Optional] Install `utop`
+   ```
+   opam install utop
+   ```
+
+1. [Optional] Run one of the following commands `dune utop` OR
+   `dune utop -p petr4`. Check if you can run the following command
+   in the toplevel. It should return an empty string.
+   ```
+   Petr4.P4info.to_string Petr4.P4info.dummy;;   
+   ```
+
 ## Running Petr4
 
 Currently `petr4` is merely a P4 front-end. By default, it will parse
@@ -79,11 +91,6 @@ a source program to an abstract syntax tree and print it out, either
 as P4 or encoded into JSON.
 
 Run `petr4 -help` to see the list of currently-supported options.
-
-## Web user interface
-
-`petr4` uses `js_of_ocaml` to provide a web interface. To compile to javascript,
-run `make web`. Then open `index.html` in `html_build` in a browser.
 
 # Contributing
 
