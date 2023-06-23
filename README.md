@@ -72,9 +72,9 @@ Alternatively, follow theses steps:
    make test
    ```
 
-1. [Optional] Install `utop`
+1. [Optional] Install helper packages
    ```
-   opam install utop
+   opam install utop ocaml-lsp-server ocamlformat ocamlformat-rpc
    ```
 
 1. [Optional] Run one of the following commands `dune utop` OR
